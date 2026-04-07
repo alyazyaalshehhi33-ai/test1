@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/meetjs/addons/1.1.0/meet.addons.js"></script>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #f0f4f8; padding: 15px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 10px; }
+        .blue-btn { background: #0066cc; color: white; border: none; padding: 10px; border-radius: 6px; width: 100%; cursor: pointer; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="login-view" class="card">
+        <h2 style="color: #0066cc;">Doctor Login</h2>
+        <input type="text" placeholder="ID Number" style="width: 90%; padding: 8px; margin-bottom: 10px;">
+        <button class="blue-btn" onclick="showDashboard()">Login</button>
+    </div>
+
+    <div id="dashboard-view" class="hidden">
+        <div class="card">
+            <h3>Sarah Johnson</h3>
+            <p>ID: #8821 | 29 yrs</p>
+            <button class="blue-btn" id="btn-open-results">Analyze Lab Results</button>
+        </div>
+    </div>
+
+    <script>
+        let sidePanelClient;
+
+        // Initialize Google Meet Session
+        window.onload = async () => {
+            const session = await window.meet.addon.createAddonSession({
+                cloudProjectNumber: 'PASTE_YOUR_PROJECT_NUMBER_HERE'
+            });
+            sidePanelClient = await session.createSidePanelClient();
+        };
+
+        function showDashboard() {
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('dashboard-view').classList.remove('hidden');
+        }
+
+        // Action: When doctor clicks button, open the large view in the center
+        document.getElementById('btn-open-results').onclick = async () => {
+            await sidePanelClient.startActivity({
+                mainStageUrl: 'https://your-hosted-site.com/mainstage.html'
+            });
+        };
+    </script>
+</body>
+</html>

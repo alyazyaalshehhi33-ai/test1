@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/meetjs/addons/1.1.0/meet.addons.js"></script>
+    <style>
+        body { background: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .large-report { width: 80%; border: 2px solid #0066cc; border-radius: 20px; padding: 40px; }
+    </style>
+</head>
+<body>
+    <div class="large-report">
+        <h1>Medical Analysis: Sarah Johnson</h1>
+        <hr>
+        <p><strong>Heart Rate:</strong> 74 BPM</p>
+        <p><strong>Blood Pressure:</strong> 118/79</p>
+        <p><strong>Notes:</strong> Patient is responding well to medication.</p>
+    </div>
+
+    <script>
+        window.onload = async () => {
+            await window.meet.addon.createAddonSession({
+                cloudProjectNumber: 'PASTE_YOUR_PROJECT_NUMBER_HERE'
+            });
+        };
+    </script>
+</body>
+</html>
