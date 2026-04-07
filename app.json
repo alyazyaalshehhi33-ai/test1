@@ -1,0 +1,20 @@
+{
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/meetings.addon.onset"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Telehealth App",
+      "logoUrl": "https://www.gstatic.com/images/branding/product/1x/meet_512dp.png"
+    },
+    "meet": {
+      "web": {
+          "sidePanelUrl": "https://storage.googleapis.com/telehealth-app-fatima/sidepanel.html"
+        "supportsScreenSharing": true,
+        "addOnOrigins": [
+          "https://storage.googleapis.com"
+        ]
+      }
+    }
+  }
+}
